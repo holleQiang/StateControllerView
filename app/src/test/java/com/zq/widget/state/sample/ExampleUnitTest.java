@@ -1,4 +1,4 @@
-package com.zq.widget.state.controller;
+package com.zq.widget.state.sample;
 
 import org.junit.Test;
 
