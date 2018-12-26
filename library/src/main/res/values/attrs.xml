@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="StateFrameLayout">
+        <attr name="contentLayoutId" format="integer|reference"/>
+        <attr name="errorLayoutId" format="integer|reference"/>
+        <attr name="loadingLayoutId" format="integer|reference"/>
+        <attr name="emptyLayoutId" format="integer|reference"/>
+    </declare-styleable>
+    <attr name="StateFrameLayoutStyle" />
+</resources>

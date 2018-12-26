@@ -2,38 +2,37 @@ package com.zq.widget.state.sample;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
+import com.zq.widget.state.SampleStateChangeListener;
 import com.zq.widget.state.StateFrameLayout;
-import com.zq.widget.state.StateViewAdapter;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    private StateFrameLayout stateFrameLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        StateFrameLayout stateFrameLayout = (StateFrameLayout) findViewById(R.id.m_state_frame_layout);
-        StateViewAdapter adapter = new StateViewAdapter() {
-
+        stateFrameLayout = (StateFrameLayout) findViewById(R.id.m_state_frame_layout);
+        stateFrameLayout.setOnStateChangeListener(new SampleStateChangeListener());
+        stateFrameLayout.showError();
+        stateFrameLayout.getErrorView().setOnClickListener(new View.OnClickListener() {
             @Override
-            public View getViewWithState(ViewGroup parent, int state, View convertView) {
-                if (state == 1) {
-                    if (convertView != null) {
-                        return convertView;
-                    }
-                    return LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_error, parent, false);
-                }else if(state == 2){
-
-                }
-                return null;
+            public void onClick(View v) {
+                stateFrameLayout.showContent();
             }
-        };
-        adapter.setState(1);
-        stateFrameLayout.setAdapter(adapter);
+        });
+        for (View view : stateFrameLayout.getContentViews()) {
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    stateFrameLayout.showError();
+                }
+            });
+        }
     }
 
 
