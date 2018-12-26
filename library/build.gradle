@@ -1,6 +1,5 @@
 apply plugin: 'com.android.library'
-//这个跟Jcenter一样的插件
-apply plugin: 'com.github.dcendents.android-maven'
+
 android {
     compileSdkVersion 28
 
@@ -33,3 +32,4 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
+apply plugin: 'com.github.dcendents.android-maven'
