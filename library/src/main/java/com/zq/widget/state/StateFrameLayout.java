@@ -157,13 +157,13 @@ public class StateFrameLayout extends FrameLayout{
 
     private void hideLoading(){
         if (mLoadingView != null) {
-            mLoadingView.setVisibility(View.VISIBLE);
+            mLoadingView.setVisibility(View.GONE);
         }
     }
 
     private void hideEmpty(){
         if (mEmptyView != null) {
-            mEmptyView.setVisibility(View.VISIBLE);
+            mEmptyView.setVisibility(View.GONE);
         }
     }
     private void hideError(){

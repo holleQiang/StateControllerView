@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/m_state_frame_layout"
-    app:errorLayoutId="@layout/layout_error"
 
     tools:context=".MainActivity">
 

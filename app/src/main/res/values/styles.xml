@@ -6,6 +6,11 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="StateFrameLayoutStyle">@style/AppTheme.StateFrameLayoutStyle</item>
+    </style>
+
+    <style name="AppTheme.StateFrameLayoutStyle">
+        <item name="errorLayoutId">@layout/layout_error</item>
     </style>
 
 </resources>
