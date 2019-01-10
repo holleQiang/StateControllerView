@@ -15,24 +15,26 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         stateFrameLayout = (StateFrameLayout) findViewById(R.id.m_state_frame_layout);
         stateFrameLayout.setOnStateChangeListener(new SampleStateChangeListener());
-        stateFrameLayout.showError();
-        stateFrameLayout.getErrorView().setOnClickListener(new View.OnClickListener() {
+        stateFrameLayout.setCurrentState(StateFrameLayout.STATE_CONTENT);
+        stateFrameLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                stateFrameLayout.showContent();
+                int currentState = stateFrameLayout.getCurrentState();
+                if (currentState == StateFrameLayout.STATE_CONTENT) {
+                    stateFrameLayout.setCurrentState(StateFrameLayout.STATE_EMPTY);
+                }else if (currentState == StateFrameLayout.STATE_EMPTY) {
+                    stateFrameLayout.setCurrentState(StateFrameLayout.STATE_ERROR);
+                }else if (currentState == StateFrameLayout.STATE_ERROR) {
+                    stateFrameLayout.setCurrentState(StateFrameLayout.STATE_LOADING);
+                }else if (currentState == StateFrameLayout.STATE_LOADING) {
+                    stateFrameLayout.setCurrentState(StateFrameLayout.STATE_CONTENT);
+                }
             }
         });
-        for (View view : stateFrameLayout.getContentViews()) {
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    stateFrameLayout.showError();
-                }
-            });
-        }
     }
 
 
