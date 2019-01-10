@@ -5,7 +5,9 @@
     android:id="@+id/m_state_frame_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:currentState="error"
+    app:currentState="loading"
+    app:errorLayoutId="@layout/layout_error"
+    app:loadingLayoutId="@layout/layout_loading"
     tools:context=".MainActivity">
 
     <android.support.v7.widget.AppCompatTextView
@@ -21,20 +23,7 @@
         android:layout_gravity="center"
         android:src="@mipmap/ic_launcher" />
 
-    <android.support.v7.widget.AppCompatImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher_round"
-        app:viewType="error" />
 
-
-    <android.support.v7.widget.AppCompatTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        app:viewType="loading"
-        android:textSize="40sp"
-        android:text="Loading"/>
     <android.support.v7.widget.AppCompatTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
